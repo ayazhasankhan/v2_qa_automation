@@ -48,9 +48,4 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 7. `src\helper\report` -> To generate the report
 8. `cucumber.json` -> One file to do all the magic
 9. `package.json` -> Contains all the dependencies
-## Tutorials
-1. Learn Playwright - [Playwright - TS](https://youtube.com/playlist?list=PL699Xf-_ilW7EyC6lMuU4jelKemmS6KgD)
-2. BDD in detail - [TS binding](https://youtube.com/playlist?list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk)
 
-
-[![VIDEO THUMBNAIL](IMAGE URL)](<iframe width="560" height="315" src="https://www.youtube.com/embed/bfWXNLqKlvA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>)
