@@ -18,16 +18,16 @@ export class LoginPage {
 
 
     async enterUserName(userNameInput: string) {
-        await this.base.enterText(loginPageLocator.userName, userNameInput);
+        await this.page.locator(loginPageLocator.userName).fill(userNameInput);
         fixture.logger.info('enter userName');
     }
     async enterPassword(passwordInput: string) {
-        await this.base.enterText(loginPageLocator.password, passwordInput);
+        await this.page.locator(loginPageLocator.password).fill(passwordInput);
         fixture.logger.info('enter password');
     }
 
     async clickLoginButton() {
-        await this.base.click(loginPageLocator.loginBtn);
+        await this.page.click(loginPageLocator.loginBtn);
         fixture.logger.info('click on login button');
     }
 

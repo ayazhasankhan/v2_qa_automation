@@ -7,18 +7,7 @@ export default class PlaywrightWrapper {
     }
 
     async goto(url: string) {
-        await this.page.goto(url, {
-            waitUntil: "domcontentloaded",
-            timeout:120000
-            });
-        }
-
-    async click(locator: string) {
-        await this.page.locator(locator).click({timeout:30000});
-        }
-
-    async enterText(locator: string, textInput:string) {
-        await this.page.locator(locator).fill(textInput, {timeout:30000});
+        await this.page.goto(url, {waitUntil: "domcontentloaded", timeout:120000});
         }
 
     async validateText(text: string) {
