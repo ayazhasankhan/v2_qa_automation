@@ -1,4 +1,4 @@
-import { Given, When, Then, setDefaultTimeout} from "@cucumber/cucumber";
+import { Given, When, Then, setDefaultTimeout } from "@cucumber/cucumber";
 import { fixture } from '../../hooks/pageFixture';
 import { LoginPage } from '../../pageObject/pages/LoginPage';
 
@@ -23,7 +23,12 @@ When('User click on the login button', async function () {
     await loginPage.clickLoginButton();
 });
 
-
 Then('Login should be success', async function () {
     await loginPage.validateUserProfileName();
 })
+Then('Warning message with the text {string} should be displayed', async function (ErrorMsg) {
+    await loginPage.validateInvalidCredentialsErrorMessage(ErrorMsg)
+});
+Then('Warning message with the text {string} and {string} should be displayed', async function (userNameRequireMessage, passwordNameRequireMessage) {
+    await loginPage.validateUsernamePasswordRequiredMessage(userNameRequireMessage, passwordNameRequireMessage)
+});
