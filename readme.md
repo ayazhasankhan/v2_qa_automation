@@ -35,17 +35,22 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 2. Extract and open in the VS-Code
 3. `npm i` to install the dependencies
 4. `npx playwright install` to install the browsers
-5. `npm test` to execute the tests
+5. then run the following comand
+   npm install multiple-cucumber-html-reporter
+   npm install multiple-cucumber-html-reporter --save
+   npm install multiple-cucumber-html-reporter --save-dev
+6. `npm test` to execute the tests
 
 ### Folder structure
-0. `src\pages` -> All the page (UI screen)
-1. `src\test\features` -> write your features here
-2. `src\test\steps` -> Your step definitions goes here
-3. `src\hooks\hooks.ts` -> Browser setup and teardown logic
-4. `src\hooks\pageFixture.ts` -> Simple way to share the page objects to steps
-5. `src\helper\env` -> Multiple environments are handled
-6. `src\helper\types` -> To get environment code suggesstions
-7. `src\helper\report` -> To generate the report
-8. `cucumber.json` -> One file to do all the magic
-9. `package.json` -> Contains all the dependencies
+0. `src\pageObject\components` -> All locators goes here
+1. `src\pageObject\pages` -> All page actions go here
+2. `src\test\features` -> write your features here
+3. `src\test\steps` -> Your step definitions goes here
+4. `src\hooks\hooks.ts` -> Browser setup and teardown logic
+5. `src\hooks\pageFixture.ts` -> Simple way to share the page objects to steps
+6. `src\helper\env` -> Multiple environments are handled
+7. `src\helper\types` -> To get environment code suggesstions
+8. `src\helper\report` -> To generate the report
+9. `cucumber.json` -> One file to do all the magic
+10. `package.json` -> Contains all the dependencies
 
