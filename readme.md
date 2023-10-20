@@ -36,9 +36,9 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 3. `npm i` to install the dependencies
 4. `npx playwright install` to install the browsers
 5. then run the following comand
-   npm install multiple-cucumber-html-reporter
-   npm install multiple-cucumber-html-reporter --save
-   npm install multiple-cucumber-html-reporter --save-dev
+    'npm install multiple-cucumber-html-reporter'
+    'npm install multiple-cucumber-html-reporter --save'
+    'npm install multiple-cucumber-html-reporter --save-dev'
 6. `npm test` to execute the tests
 
 ### Folder structure
