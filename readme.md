@@ -53,4 +53,3 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 8. `src\helper\report` -> To generate the report
 9. `cucumber.json` -> One file to do all the magic
 10. `package.json` -> Contains all the dependencies
-
