@@ -103,7 +103,7 @@ export class BasePage {
         const fileChooserPromise = this.page.waitForEvent('filechooser');
         await this.page.getByText('Upload file').click();
         const fileChooser = await fileChooserPromise;
-        await fileChooser.setFiles(path.join(__dirname, 'myfile.pdf'));
+       // await fileChooser.setFiles(path.join(__dirname, 'myfile.pdf'));
         fixture.logger.info('clickOnCancel');
     }
 
