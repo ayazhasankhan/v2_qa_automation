@@ -5,43 +5,28 @@ import { fixture } from "../../hooks/pageFixture";
 
 export class LoginPage {
     private base: PlaywrightWrapper;
+
     constructor(private page: Page) {
         this.base = new PlaywrightWrapper(page);
     }
+
     async navigateToLoginPage() {
         await this.base.goto(process.env.BASEURL);
         fixture.logger.info('Go to the application');
     }
-    async enterUserName(userNameInput: string) {
+
+    async enterUserName(userNameInput= 'ps@deborah.org') {
         await this.page.locator(loginPageLocator.userName).fill(userNameInput);
         fixture.logger.info('enter userName');
     }
-    async enterPassword(passwordInput: string) {
+
+    async enterPassword(passwordInput= 'BigC@ctus2020') {
         await this.page.locator(loginPageLocator.password).fill(passwordInput);
         fixture.logger.info('enter password');
     }
+
     async clickLoginButton() {
-        await this.page.click(loginPageLocator.loginBtn);
+        await this.page.locator(loginPageLocator.loginBtn).click();
         fixture.logger.info('click on login button');
-    }
-    async validateUserProfileName() {
-        await this.base.validateText('ProCARE PS');
-        fixture.logger.info('validate userProfile Name');
-    }
-    /**
-     * Below function will validate error message
-     * @param msg 
-     */
-    async validateInvalidCredentialsErrorMessage(msg: string) {
-        await this.base.validateText(msg);
-        fixture.logger.info('Error message validated successfully');
-    }
-    /**
-     * Below function will validate error message
-     * @param msg 
-     */
-    async validateUsernamePasswordRequiredMessage(username: string,passwrd: string) {
-        await this.base.validateUserNamePasswordText(username,passwrd);
-        fixture.logger.info('Blank field required message validated successfully');
-    }
+    } 
 }

@@ -9,6 +9,9 @@ module.exports = {
         ],
         publishQuiet: true,
         dryRun: false,
+        parallel: 1,
+        retry: 0,
+        //retryTagFilter: '@flaky',
         require: [
             "src/test/steps/*.ts",
             "src/hooks/hooks.ts"
@@ -22,7 +25,6 @@ module.exports = {
             "json:test-results/cucumber-report.json",
             "rerun:@rerun.txt"
         ],
-        parallel: 1
     },
     rerun: {
         formatOptions: {
@@ -30,6 +32,7 @@ module.exports = {
         },
         publishQuiet: true,
         dryRun: false,
+        parallel: 5,
         require: [
             "src/test/steps/*.ts",
             "src/hooks/hooks.ts"
@@ -43,6 +46,5 @@ module.exports = {
             "json:test-results/cucumber-report.json",
             "rerun:@rerun.txt"
         ],
-        parallel: 1
     }
 }
