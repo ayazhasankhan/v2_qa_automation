@@ -2,6 +2,7 @@ import { expect, Page } from "@playwright/test";
 import PlaywrightWrapper from '../../helper/wrapper/PlaywrightWrappers';
 import { basePageLocator } from '../components/BasePageLocator';
 import { fixture } from "../../hooks/pageFixture";
+import path = require("path");
 
 export class BasePage {
     private base: PlaywrightWrapper;
@@ -10,10 +11,11 @@ export class BasePage {
         this.base = new PlaywrightWrapper(page);
     }
 
-    async applyGridFilter(columnNumber:number,filterText:string){
+    async applyGridFilterAndVerify(columnNumber:number,filterText:string){
         await this.page.locator(basePageLocator.gridFilter).nth(columnNumber).click({timeout:30000});
-        await this.page.getByRole('textbox').nth(1).fill(filterText,{timeout:30000});
+        await this.page.locator(basePageLocator.filterInput).fill(filterText,{timeout:30000});
         await this.page.getByRole('button', { name: 'Filter' }).click({timeout:30000});
+        await expect(this.page.getByRole('cell', { name: filterText })).toContainText(filterText,{timeout:30000});
         fixture.logger.info('applying grid filter for'+columnNumber+'and'+filterText);
     }
 
@@ -98,13 +100,28 @@ export class BasePage {
         fixture.logger.info('clickOnCancel');
     }
 
-    async fileUpload(path:string) {
-        // Start waiting for file chooser before clicking. Note no await.
-        const fileChooserPromise = this.page.waitForEvent('filechooser');
-        await this.page.getByText('Upload file').click();
-        const fileChooser = await fileChooserPromise;
-       // await fileChooser.setFiles(path.join(__dirname, 'myfile.pdf'));
-        fixture.logger.info('clickOnCancel');
+    async clickOnUploadSpecialtyIcon() {
+        await this.page.locator(basePageLocator.uploadSpecialtyIcon).click({timeout:30000});
+        fixture.logger.info('click On Upload Specialty Icon');
     }
 
+    async fileUpload(fileName:string) {
+        // Start waiting for file chooser before clicking. Note no await.
+        const fileChooserPromise = this.page.waitForEvent('filechooser');
+        await this.page.locator('[type="file"]').click();
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles('src/resource/'+fileName);
+        fixture.logger.info('file Upload');
+    }
+
+    async clickOnUpload() {
+        await this.page.getByRole('button',{name:basePageLocator.upload}).click({timeout:30000});
+        fixture.logger.info('click On Save');
+    }
+
+    async clickOnSave() {
+        await expect(this.page.getByRole('button',{name:basePageLocator.save}).nth(1)).toBeVisible({timeout:30000});
+        await this.page.getByRole('button',{name:basePageLocator.save}).nth(1).click({timeout:30000});
+        fixture.logger.info('click On Save');
+    }
 }

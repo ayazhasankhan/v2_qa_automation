@@ -1,6 +1,6 @@
 module.exports = {
     default: {
-        tags: process.env.npm_config_TAGS || "",
+        tags: process.env.npm_config_TAGS || '',
         formatOptions: {
             snippetInterface: "async-await"
         },
@@ -10,7 +10,7 @@ module.exports = {
         publishQuiet: true,
         dryRun: false,
         parallel: 1,
-        retry: 0,
+        retry: 1,
         //retryTagFilter: '@flaky',
         require: [
             "src/test/steps/*.ts",

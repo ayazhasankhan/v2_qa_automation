@@ -1,6 +1,7 @@
 export const basePageLocator={
 
     gridFilter:'[class="k-grid-column-menu k-grid-filter"]',
+    filterInput:'//div[@class="k-animation-container k-animation-container-relative k-animation-container-shown"]//input[1]',
     manageColumnFilter:'[class="fa fa-list-ul pointer-class"]',
     quickLink:"//li[@class='hoverMenu']//a[@class='cta-small']",
     deleteSelectedRows:'Delete Selected Rows',
@@ -11,4 +12,7 @@ export const basePageLocator={
     showAuditLog:'Show Audit Log',
     auditLogsLabel:'Audit Logs',
     cancel:'Cancel',
+    uploadSpecialtyIcon:'[class="fas fa-upload"]',
+    upload: 'Upload',
+    save: 'Save',
 };

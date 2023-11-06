@@ -37,13 +37,6 @@ export class SpecialtyPage {
       async enterSpecialityRegionName(department: string) {
         await expect(this.page.locator(specialtyPageLocator.specialityRegionName)).toBeVisible({timeout:30000});
         await this.page.locator(specialtyPageLocator.specialityRegionName).fill(department,{timeout:30000});
-        fixture.logger.info('enterSpecialityRegionName');
+        fixture.logger.info('enter Speciality Region Name');
       }
-      
-      async clickOnSave() {
-        await expect(this.page.getByRole('button',{name:specialtyPageLocator.save}).nth(1)).toBeVisible({timeout:30000});
-        await this.page.getByRole('button',{name:specialtyPageLocator.save}).nth(1).click({timeout:30000});
-        fixture.logger.info('clickOnSave');
-      }
-
     }

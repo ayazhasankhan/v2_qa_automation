@@ -2,7 +2,7 @@ Feature: login into application
 
   Background:
     Given User go to the application
-
+    
   Scenario: Validate user should be able to login success
     And User enter the username as "ps@deborah.org"
     And User enter the password as "BigC@ctus2020"

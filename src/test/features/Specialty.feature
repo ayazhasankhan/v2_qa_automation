@@ -2,39 +2,27 @@ Feature: Specialty Screen Test
 
   Background:
     Given User login to the application
-
-  Scenario: User should able to add, update and delete single record
     Given Redirect to Specialty screen
-    When Redirect to add Specialty screen
+
+  Scenario: User should able to add, update and delete single record on specialty screen
+    And Redirect to add Specialty screen
     And Enter the proper data Specialty Name, Description and Region Name
-    Then Click on save button and verify
+    And Click on save button
+    Then Verify specialty is created
     When Apply grid filter on specialty name column
-    Then Validate filter is applied properly
-    And Open the record in edit mode at Specialty screen 
+    And Open the record in edit mode at Specialty screen
     And Update the Specialty Name, Description and Region Name
-    Then Click on update button and verify
-    And Perform the single record delete functionality and verified it is working or not at Specialty screen
+    And Click on update button
+    Then Verify specialty is updated
+    And Select single record
+    And Mouse hover on quick link
+    And Delete Selected Rows
+    Then Verify Row is deleted
 
-  Scenario: User should able to perform show/hide columns in speciality grid
-    Given Redirect to Specialty screen
+  Scenario: User should able to perform show/hide columns in specialty grid
     When Show only column 'SPECIALTY DESC' by filtering
     Then Validate enabled column 'SPECIALTY DESC' is visible
 
-  Scenario: User should able to perform export to excel functionality
-    Given Redirect to Specialty screen
+  Scenario: User should able to perform export to excel functionality for specialty
     When Mouse hover On Quick Link
     Then Click on Export to Excel
-
-  Scenario: User should able to perform audit log functionality 
-    Given Redirect to Specialty screen
-    When Select first record in specialty grid
-    And Mouse hover On Quick Link
-    And Click on Show Audit Log
-    Then Click on cancel
-
-  Scenario: User should able to upload specialty 
-    Given Redirect to Specialty screen
-    When Click on upload specialty icon
-    And Mouse hover On Quick Link
-    And Click on Show Audit Log
-    Then Click on cancel
